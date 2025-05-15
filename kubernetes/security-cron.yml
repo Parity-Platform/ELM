@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: wazuh-security-job
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: wazuh-script
+            image: wazuh-script-image
+            command: ["python", "wazuh_script.py"]
+          restartPolicy: OnFailure
