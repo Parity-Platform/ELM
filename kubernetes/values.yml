@@ -1,0 +1,17 @@
+global:
+  agent:
+    id: uc-agent-3
+    ocmDM:
+      iamClientId: uc-agent-3.dm
+      iamClientSecret: some-secret
+    url: 10.160.3.300:32000
+  controller:
+    url: 10.160.3.100:32000
+  core:
+    url: 10.160.3.050:32000
+    iam:
+      publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2lj6EIO30m2i2bVaVE9GUzotIBeUBlk5vUmQF1cFzR9Vk2jR8WOYOlq1RZtIIL/qXS8NG09rsosJ/HyvlRQXruIM25edGFPXEKxYIAFt5GsCjoxfKxNNJFwOkkrO9bS4dAkmCx5McxB1cr8T8/9GDtYiYkw9uuMCk8Kr7nPAjoB3PTgjWFDcORAozmCWjUYkyiMn3DDUkG2Er09N1QzjfrUgdPGMhC8aDEvnlOsMKOuywGyQ9YfPTcfR04jCe2GSlCTTPFLD8D6fDLl8AQlheFHKpNhCH0Nqo4+lNTzyZvERdvc8ac9yVUoyKJufBGndiLKAyNKQmQdK+XF3Id5FfQIDAQAB
+      realm: icos-stable
+
+ocm-descriptor:
+  enabled: true

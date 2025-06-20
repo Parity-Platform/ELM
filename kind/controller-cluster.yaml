@@ -1,0 +1,30 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: icos-controller
+networking:
+  podSubnet: "10.240.0.0/16"
+  serviceSubnet: "10.241.0.0/16"
+  apiServerAddress: "0.0.0.0"
+  apiServerPort: 10443
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "icos.eu/role=controller"
+  extraPortMappings:
+  - containerPort: 30000
+    hostPort: 30000
+    protocol: TCP
+  - containerPort: 32103
+    hostPort: 32103
+    protocol: TCP
+- role: worker
+  kubeadmConfigPatches:
+  - |
+    kind: JoinConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "icos.eu/role=controller"
