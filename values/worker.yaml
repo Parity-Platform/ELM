@@ -1,0 +1,17 @@
+global:
+  # Configuration of the ICOS Agent to which this Worker will join
+  agent:
+    routing: host
+    url: http://0.0.0.0
+
+  # ICOS CA Root Certificate (in base64 encoding). Optional, only needed if HTTPS
+  # protocol is used in the ICOS Agent URL
+  # core:
+  #   ca:
+  #     bundle: LS0tLS1CR....0tLS0tCg
+
+# Optional: specify custom labels to assign to all nodes of this Worker
+telemetruum-leaf:
+  telemetruum-leaf-exporter:
+    staticHostsLabels:
+      my_label: my_value

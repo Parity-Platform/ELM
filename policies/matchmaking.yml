@@ -1,0 +1,6 @@
+policies:
+  - name: federated-learning-policy
+    type: user-preference
+    performance: 60%
+    security: 80%
+    energyconsumption: 30%

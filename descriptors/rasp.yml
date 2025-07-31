@@ -1,0 +1,16 @@
+name: federated_learning
+description: "federated learning client"
+components:
+  - name: component-1
+    type: kubernetes
+    manifests:
+      - name: comp-1-manifest
+    requirements:
+      architecture: intel
+      cpu: 0.5
+      memory: 600Mi
+      nodelabel: 
+        key: node-label-key
+        values:
+          - rasp-worker1
+          - node-label-robot2

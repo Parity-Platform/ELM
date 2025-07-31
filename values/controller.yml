@@ -1,0 +1,51 @@
+global:
+
+  # Configuration values for the new ICOS Controller to be deployed
+  # for the clientId and clientSecret values use the values obtained 
+  # in the IAM Configuration step.
+  controller:
+    id: <unique-id-for-the-controller>
+
+    # These two values will define how the services will be exposed
+    # customize to your preferences/needs
+    url: https://controller-a.my-continuum.org/
+    routing: host
+
+    dpm:
+      iamClientId: dynamic-policy-manager
+      iamGuiClientId: dynamic-policy-manager-gui
+      iamClientSecret: secret
+    jobManager:
+      iamClientId: job-manager
+      iamClientSecret: secret
+    matchmaker:
+      iamClientId: matchmaker
+      iamClientSecret: secret
+    securityCoordination:
+      iamClientId: security-coordinator
+      iamClientSecret: secret
+    shellBackend:
+      # the shell backend clientId and clientSecret MUST be the same used in the lighthouse configuration done for the ICOS Core
+      iamClientId: lighthouse
+      iamClientSecret: secret
+      # user created in IAM Configuration step
+      iamPassword: secret
+      iamUser: secret
+    telemetry:
+      iamGrafanaClientId: telemetry-grafana
+      iamGrafanaClientSecret: secret
+
+  # Configuration values to identify the ICOS Core instance to which this ICOS Controller will register
+  # These values should be the same used in the Helm values of the ICOS Core
+  core:
+    routing: host
+    url: http://0.0.0.0
+    # iam:
+    #   publicKey: <IAM public Key>
+    #   realm: <realm-name>
+    # # only needed if the ICOS CA is enabled in the ICOS Core
+    # ca:
+    #   bundle: <CA Root Certificate Bundle in Base64>
+
+icos-ingress-controller:
+  enabled: true
